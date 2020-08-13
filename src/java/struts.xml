@@ -1,0 +1,137 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <action name="LoginAction" class="actions.LoginAction">
+            <result name="error">index.jsp</result>
+            <result name="admin">admin.jsp</result>
+            <result name="user">user.jsp</result>
+            <result name="repairer">repairer.jsp</result>
+        </action>
+        <action name="SearchDSAction" class="actions.SearchDSAction">
+            <result name="success">admin.jsp</result>
+        </action>
+        <action name="SearchUserAction" class="actions.SearchUserAction">
+            <result name="success">crudUser.jsp</result>
+        </action>
+        <action name="DeleteUserAction" class="actions.DeleteUserAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchUserAction</param>
+                <param name="searchUser">${searchUser}</param>
+            </result>
+            <result name="error">crudUser.jsp</result>
+        </action>
+        <action name="EditUserAction" class="actions.EditUserAction">
+            <result name="success">editUser.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="UpdateUserAction" class="actions.UpdateUserAction">
+            <result name="success">crudUser.jsp</result>
+            <result name="error">error.jsp</result>
+            <result name="invalid">editUser.jsp</result>
+        </action>
+        <action name="InsetUserAction" class="actions.InsetUserAction">
+            <result name="success">crudUser.jsp</result>
+            <result name="error">error.jsp</result>
+            <result name="invalid">createUser.jsp</result>
+        </action>
+        <action name="LogoutAction" class="actions.LogoutAction">
+            <result name="success"  type="redirect">index.jsp</result>
+        </action>
+        <action name="SearchRoomAction" class="actions.SearchRoomAction">
+            <result name="success">crudRoom.jsp</result>
+        </action>
+        <action name="DeleteRoomAction" class="actions.DeleteRoomAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchRoomAction</param>
+                <param name="searchRoom">${searchRoom}</param>
+            </result>
+            <result name="error">crudRoom.jsp</result>
+        </action>
+        <action name="EditRoomAction" class="actions.EditRoomAction">
+            <result name="success">editRoom.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="UpdateRoomAction" class="actions.UpdateRoomAction">
+            <result name="success">crudRoom.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="InsetRoomAction" class="actions.InsetRoomAction">
+            <result name="success">crudRoom.jsp</result>
+            <result name="invalid">createRoom.jsp</result>
+        </action>
+        <action name="SearchDeviceAction" class="actions.SearchDeviceAction">
+            <result name="admin">crudDevice.jsp</result>
+            <result name="repairer">searchDeviceByRepaier.jsp</result>
+        </action>
+        <action name="DeleteDeviceAction" class="actions.DeleteDeviceAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">SearchDeviceAction</param>
+                <param name="searchDevice">${searchDevice}</param>
+            </result>
+            <result name="error">crudDevice.jsp</result>
+        </action>
+        <action name="EditDeviceAction" class="actions.EditDeviceAction">
+            <result name="success">editDevice.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+        <action name="UpdateDeviceAction" class="actions.UpdateDeviceAction">
+            <result name="success">crudDevice.jsp</result>
+            <result name="error">error.jsp</result>
+            <result name="invalid">editDevice.jsp</result>
+        </action>
+        <action name="InsertDeviceAction" class="actions.InsertDeviceAction">
+            <result name="success">crudDevice.jsp</result>
+            <result name="error">error.jsp</result>
+            <result name="invalid">createDevice.jsp</result>
+        </action>
+        <action name="RHistoryAction" class="actions.RHistoryAction">
+            <result name="success">viewHistoryDevice.jsp</result>
+        </action>
+        
+        <!--                User                 -->
+        <action name="UserSearchDeviceAction" class="actions.UserSearchDeviceAction">
+            <result name="success">user.jsp</result>
+        </action>
+        <action name="ViewLocationHistoryAction" class="actions.ViewLocationHistoryAction">
+            <result name="success">viewLocationHistory.jsp</result>
+        </action>
+        <action name="RequestRepairAction" class="actions.RequestRepairAction">
+            <result name="success">user.jsp</result>
+        </action>
+        <action name="LoadUserInboxAction" class="actions.LoadUserInboxAction">
+            <result name="success">inboxUser.jsp</result>
+        </action>
+        <action name="LoadUserSendAction" class="actions.LoadUserSendAction">
+            <result name="success">sendUser.jsp</result>
+        </action>
+<!--                        Repairer                -->
+         <action name="LoadRequestRepairAction" class="actions.LoadRequestRepairAction">
+            <result name="repairer">repairer.jsp</result>
+            <result name="admin">adminNoti.jsp</result>
+        </action>
+        <action name="ConfrimRepairAction" class="actions.ConfrimRepairAction">
+            <result name="success">repairer.jsp</result>
+        </action>
+        <action name="LoadMyRepairAction" class="actions.LoadMyRepairAction">
+            <result name="success">repairManager.jsp</result>
+        </action>
+        <action name="CompleteRepairAction" class="actions.CompleteRepairAction">
+            <result name="success">completeRepair.jsp</result>
+            <result name="error">repairManager.jsp</result>
+        </action>
+        <action name="RecordRepairAction" class="actions.RecordRepairAction">
+            <result name="success">repairManager.jsp</result>
+        </action>
+        <action name="ChangeRoomByRepairerAction" class="actions.ChangeRoomByRepairerAction">
+            <result name="success">repairerChangeRoom.jsp</result>
+        </action>
+        <action name="UpdateRoomDeviceByFixerAction" class="actions.UpdateRoomDeviceByFixerAction">
+            <result name="success">searchDeviceByRepaier.jsp</result>
+        </action>
+        
+    </package>
+</struts>
